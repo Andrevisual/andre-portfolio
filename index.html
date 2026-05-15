@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Andre Pavan P. | Portfólio</title>
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <audio id="clickSound" src="assets/click.mp3"></audio>
-  <audio id="scrollSound" src="assets/scroll.mp3"></audio>
-  <audio id="bgMusic" loop src="assets/music.mp3"></audio>
+  <!-- ÁUDIOS -->
+  <audio id="clickSound" src="assets/click.mp3" preload="auto"></audio>
+  <audio id="hoverSound" src="assets/hover.mp3" preload="auto"></audio>
+  <audio id="bgMusic" src="assets/music.mp3" loop preload="auto"></audio>
 
+  <!-- HERO -->
   <header class="hero">
+
     <nav class="navbar">
       <h2>Andre Pavan P.</h2>
 
@@ -25,121 +30,237 @@
     </nav>
 
     <div class="hero-content">
-      <div class="hero-text">
-        <span class="tag">Portfólio criativo</span>
 
-        <h1>Crio experiências digitais com tecnologia, arte e movimento.</h1>
+      <div class="hero-text">
+
+        <span class="tag">
+          Portfólio criativo
+        </span>
+
+        <h1>
+          Crio experiências digitais com tecnologia,
+          arte e movimento.
+        </h1>
 
         <p>
-          Estudante de Ciência da Computação, editor, criador 3D e apaixonado por jogos.
-          Aqui você vai encontrar meus projetos, estudos e experiências visuais.
+          Estudante de Ciência da Computação,
+          editor, criador 3D e apaixonado por jogos.
+          Aqui você encontra meus projetos,
+          ideias e experiências visuais.
         </p>
 
         <div class="buttons">
-          <a href="#projetos" class="btn primary">Ver projetos</a>
-          <a href="#contato" class="btn">Entrar em contato</a>
-          <button id="musicBtn" class="btn sound-btn">Ativar som</button>
+          <a href="#projetos" class="btn primary">
+            Ver projetos
+          </a>
+
+          <a href="#contato" class="btn">
+            Entrar em contato
+          </a>
+
+          <button id="musicBtn" class="btn">
+            Ativar som
+          </button>
         </div>
+
       </div>
 
+      <!-- FOTO -->
       <div class="photo-card">
+
         <div class="photo-placeholder">
           <span>Sua foto aqui</span>
         </div>
+
       </div>
+
     </div>
 
     <div class="forest-glow glow-1"></div>
     <div class="forest-glow glow-2"></div>
+
   </header>
 
-  <main>
+  <!-- SOBRE -->
+  <section id="sobre" class="section reveal">
 
-    <section id="sobre" class="section reveal">
-      <span class="section-tag">Sobre mim</span>
-      <h2>Um perfil criativo com base prática.</h2>
+    <span class="section-tag">
+      Sobre mim
+    </span>
 
-      <p>
-        Meu nome é Andre Pavan P. Sou estudante de Ciência da Computação e venho de uma trajetória
-        com experiências em pintura, solda, montagem e edição. Essa mistura me deu uma visão prática,
-        detalhista e criativa para resolver problemas e criar projetos.
-      </p>
+    <h2>
+      Criatividade com visão prática.
+    </h2>
 
-      <p>
-        Hoje meu foco é evoluir na área de tecnologia, desenvolvimento web, motion design,
-        edição de vídeo e criação 3D com Blender e After Effects.
-      </p>
-    </section>
+    <p>
+      Meu nome é Andre Pavan P.
+      Sou estudante de Ciência da Computação e
+      venho de experiências com pintura,
+      solda, montagem e edição.
+    </p>
 
-    <section id="habilidades" class="section reveal">
-      <span class="section-tag">Habilidades</span>
-      <h2>O que eu faço</h2>
+    <p>
+      Hoje meu foco é desenvolvimento web,
+      motion design, edição de vídeo
+      e criação 3D utilizando Blender
+      e After Effects.
+    </p>
 
-      <div class="skill-cards">
-        <article class="skill-card">
-          <h3>Desenvolvimento Web</h3>
-          <p>Criação de páginas modernas, responsivas e organizadas usando HTML, CSS, JavaScript e GitHub.</p>
-        </article>
+  </section>
 
-        <article class="skill-card">
-          <h3>Edição e Motion</h3>
-          <p>Edição de vídeos, animações, cortes dinâmicos, efeitos visuais e identidade visual para conteúdo digital.</p>
-        </article>
+  <!-- HABILIDADES -->
+  <section id="habilidades" class="section reveal">
 
-        <article class="skill-card">
-          <h3>3D e Criatividade</h3>
-          <p>Criação de elementos 3D, cenas, objetos e composições visuais usando Blender para projetos mais imersivos.</p>
-        </article>
-      </div>
+    <span class="section-tag">
+      Habilidades
+    </span>
 
-      <h3 class="tools-title">Ferramentas que uso</h3>
+    <h2>
+      O que eu faço
+    </h2>
 
-      <div class="tools-grid">
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>GitHub</span>
-        <span>Blender</span>
-        <span>After Effects</span>
-        <span>CapCut</span>
-        <span>VS Code</span>
-      </div>
-    </section>
+    <div class="skill-cards">
 
-    <section id="projetos" class="section reveal">
-      <span class="section-tag">Projetos</span>
-      <h2>Meus projetos</h2>
+      <article class="skill-card">
+        <h3>Desenvolvimento Web</h3>
 
-      <p>
-        Esta área será alimentada pelo GitHub e vai mostrar meus projetos do mais recente para o mais antigo.
-      </p>
+        <p>
+          Criação de páginas modernas,
+          responsivas e organizadas usando
+          HTML, CSS, JavaScript e GitHub.
+        </p>
+      </article>
 
-      <div id="projectsContainer" class="projects-grid"></div>
-    </section>
+      <article class="skill-card">
+        <h3>Edição e Motion</h3>
 
-    <section id="contato" class="section contact reveal">
-      <span class="section-tag">Contato</span>
-      <h2>Vamos conversar?</h2>
+        <p>
+          Edição de vídeos, motion design,
+          cortes dinâmicos e efeitos visuais.
+        </p>
+      </article>
 
-      <p>
-        Se quiser falar comigo sobre projetos, edição, desenvolvimento ou criação visual,
-        envie uma mensagem diretamente para meu e-mail.
-      </p>
+      <article class="skill-card">
+        <h3>3D e Criatividade</h3>
 
-      <a
-        class="btn primary"
-        href="mailto:dedep9881@gmail.com?subject=Contato pelo portfólio&body=Olá Andre, vi seu portfólio e gostaria de falar com você."
+        <p>
+          Desenvolvimento de elementos 3D,
+          cenas e experiências visuais
+          usando Blender.
+        </p>
+      </article>
+
+    </div>
+
+    <h3 class="tools-title">
+      Ferramentas que uso
+    </h3>
+
+    <div class="tools-grid">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>GitHub</span>
+      <span>Blender</span>
+      <span>After Effects</span>
+      <span>CapCut</span>
+      <span>VS Code</span>
+    </div>
+
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos" class="section reveal">
+
+    <span class="section-tag">
+      Projetos
+    </span>
+
+    <h2>
+      Meus projetos
+    </h2>
+
+    <p>
+      Projetos carregados automaticamente
+      pelo GitHub do mais recente
+      para o mais antigo.
+    </p>
+
+    <div id="projectsContainer" class="projects-grid"></div>
+
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="section contact reveal">
+
+    <span class="section-tag">
+      Contato
+    </span>
+
+    <h2>
+      Vamos conversar?
+    </h2>
+
+    <p>
+      Preencha o formulário abaixo
+      e envie sua mensagem diretamente
+      para meu e-mail.
+    </p>
+
+    <form
+      class="contact-form"
+      action="https://formsubmit.co/dedep9881@gmail.com"
+      method="POST"
+    >
+
+      <input
+        type="hidden"
+        name="_subject"
+        value="Nova mensagem pelo portfólio"
       >
+
+      <input
+        type="hidden"
+        name="_captcha"
+        value="false"
+      >
+
+      <input
+        type="text"
+        name="nome"
+        placeholder="Seu nome"
+        required
+      >
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Seu e-mail"
+        required
+      >
+
+      <textarea
+        name="mensagem"
+        placeholder="Escreva sua mensagem..."
+        required
+      ></textarea>
+
+      <button type="submit" class="btn primary">
         Enviar mensagem
-      </a>
-    </section>
+      </button>
 
-  </main>
+    </form>
 
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>© 2026 Andre Pavan P. — Portfólio criativo.</p>
+    <p>
+      © 2026 Andre Pavan P. — Portfólio criativo.
+    </p>
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>
