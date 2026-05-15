@@ -29,7 +29,7 @@ document.querySelectorAll("a, button").forEach(item => {
   });
 });
 
-document.querySelectorAll(".btn, .skill-card, .project-card, .tools-grid span").forEach(element => {
+document.querySelectorAll(".btn, .skill-card, .project-card, .tools-grid a, .orbit").forEach(element => {
   element.addEventListener("mousemove", e => {
     const rect = element.getBoundingClientRect();
 

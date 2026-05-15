@@ -391,19 +391,27 @@ body::after {
   gap: 12px;
 }
 
-.tools-grid span {
+.tools-grid a {
   padding: 12px 18px;
   border-radius: 999px;
   background: #071b1f;
   border: 1px solid #00f7ff40;
   color: #dffffb;
   font-weight: 800;
+  text-decoration: none;
   transition: 0.25s;
 }
 
-.tools-grid span:hover {
-  transform: translateY(-5px);
+.tools-grid a:hover {
+  color: #03100b;
+  background: linear-gradient(135deg, #7dff4d, #00f7ff);
   box-shadow: 0 0 28px #00f7ff50;
+}
+
+.tools-grid a:active,
+.orbit:active,
+.btn:active {
+  transform: scale(0.92) !important;
 }
 
 .project-card a {
@@ -491,7 +499,8 @@ footer {
     justify-content: center;
   }
 
-  .orbit {
+  .orbit {text-decoration: none;
+cursor: pointer;
     display: none;
   }
 
