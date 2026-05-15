@@ -5,15 +5,16 @@ const clickSound = document.getElementById("clickSound");
 const bgMusic = document.getElementById("bgMusic");
 const enterScreen = document.getElementById("enterScreen");
 const enterBtn = document.getElementById("enterBtn");
+const mainSite = document.getElementById("mainSite");
 
 function playSound(sound, volume = 0.25) {
   if (!sound) return;
-
   sound.volume = volume;
   sound.currentTime = 0;
   sound.play().catch(() => {});
 }
 
+/* ENTRADA */
 enterBtn.addEventListener("click", () => {
   playSound(clickSound, 0.4);
 
@@ -21,22 +22,28 @@ enterBtn.addEventListener("click", () => {
   bgMusic.play().catch(() => {});
 
   enterScreen.classList.add("hide");
+
+  setTimeout(() => {
+    mainSite.classList.add("show");
+    revealOnScroll();
+  }, 350);
 });
 
+/* SOM DE CLIQUE */
 document.querySelectorAll("a, button").forEach(item => {
   item.addEventListener("click", () => {
-    playSound(clickSound, 0.3);
+    playSound(clickSound, 0.25);
   });
 });
 
-document.querySelectorAll(".btn, .skill-card, .project-card, .tools-grid a").forEach(element => {
+/* EFEITO LEVE NOS BOTÕES */
+document.querySelectorAll(".btn, .tools-grid a, .project-card, .skill-card").forEach(element => {
   element.addEventListener("mousemove", e => {
     const rect = element.getBoundingClientRect();
-
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
 
-    element.style.transform = `translate(${x * 0.05}px, ${y * 0.05}px) scale(1.03)`;
+    element.style.transform = `translate(${x * 0.03}px, ${y * 0.03}px) scale(1.02)`;
   });
 
   element.addEventListener("mouseleave", () => {
@@ -44,6 +51,7 @@ document.querySelectorAll(".btn, .skill-card, .project-card, .tools-grid a").for
   });
 });
 
+/* GITHUB */
 async function loadProjects() {
   try {
     const response = await fetch(
@@ -89,6 +97,7 @@ async function loadProjects() {
 
 loadProjects();
 
+/* REVEAL AO ROLAR */
 const revealElements = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
@@ -103,4 +112,3 @@ function revealOnScroll() {
 }
 
 window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
