@@ -4,45 +4,34 @@ const projectsContainer = document.getElementById("projectsContainer");
 const clickSound = document.getElementById("clickSound");
 const hoverSound = document.getElementById("hoverSound");
 const bgMusic = document.getElementById("bgMusic");
-
 const enterScreen = document.getElementById("enterScreen");
 const enterBtn = document.getElementById("enterBtn");
 
 function playSound(sound, volume = 0.25) {
   if (!sound) return;
-
   sound.volume = volume;
   sound.currentTime = 0;
   sound.play().catch(() => {});
 }
 
 enterBtn.addEventListener("click", () => {
-  playSound(clickSound, 0.35);
-
+  playSound(clickSound, 0.4);
   bgMusic.volume = 0.18;
   bgMusic.play().catch(() => {});
-
   enterScreen.classList.add("hide");
 });
 
 document.querySelectorAll("a, button, .skill-card, .project-card, .tools-grid span").forEach(item => {
-  item.addEventListener("click", () => {
-    playSound(clickSound, 0.3);
-  });
-
-  item.addEventListener("mouseenter", () => {
-    playSound(hoverSound, 0.12);
-  });
+  item.addEventListener("click", () => playSound(clickSound, 0.3));
+  item.addEventListener("mouseenter", () => playSound(hoverSound, 0.1));
 });
 
 document.querySelectorAll(".btn, .skill-card, .project-card, .tools-grid span").forEach(element => {
   element.addEventListener("mousemove", e => {
     const rect = element.getBoundingClientRect();
-
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-
-    element.style.transform = `translate(${x * 0.07}px, ${y * 0.07}px) scale(1.04)`;
+    element.style.transform = `translate(${x * 0.06}px, ${y * 0.06}px) scale(1.04)`;
   });
 
   element.addEventListener("mouseleave", () => {
@@ -57,7 +46,6 @@ async function loadProjects() {
     );
 
     const repos = await response.json();
-
     projectsContainer.innerHTML = "";
 
     if (!Array.isArray(repos) || repos.length === 0) {
@@ -84,7 +72,7 @@ async function loadProjects() {
       projectsContainer.appendChild(card);
     });
 
-  } catch (error) {
+  } catch {
     projectsContainer.innerHTML = `
       <div class="project-card">
         <h3>Projetos em breve</h3>
