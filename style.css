@@ -368,26 +368,17 @@ body::after {
   border-radius: 36px;
   background: linear-gradient(135deg, #00f7ff, #7dff4d, #8a4dff);
   box-shadow: 0 30px 90px #00000090;
+  overflow: hidden;
 }
 
-.photo-placeholder {
+.profile-photo {
+  width: 100%;
   height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
   border-radius: 28px;
-  background:
-    linear-gradient(180deg, #0b1c25aa, #030907cc),
-    url("assets/foto.jpg");
-  background-size: cover;
-  background-position: center;
-  display: grid;
-  place-items: center;
   border: 1px solid #ffffff20;
-}
-
-.photo-placeholder span {
-  background: #00000090;
-  color: #ffffff;
-  padding: 12px 18px;
-  border-radius: 999px;
 }
 
 .section {
@@ -475,35 +466,8 @@ body::after {
   margin: 0 auto 28px;
 }
 
-.contact-form {
-  max-width: 720px;
-  margin: 35px auto 0;
-  display: grid;
-  gap: 16px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  border: 1px solid #00f7ff35;
-  background: #071b1f;
-  color: #ffffff;
-  padding: 17px 20px;
-  border-radius: 18px;
-  font-size: 1rem;
-  outline: none;
-  font-family: inherit;
-}
-
-.contact-form textarea {
-  min-height: 150px;
-  resize: vertical;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #7dff4d;
-  box-shadow: 0 0 30px #7dff4d30;
+.contact-link {
+  margin-top: 10px;
 }
 
 footer {
