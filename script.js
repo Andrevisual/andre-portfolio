@@ -1,10 +1,12 @@
-const githubUser = "uchiha9882-debug";
+const githubUser = "Andrevisual";
 
 const projectsContainer = document.getElementById("projectsContainer");
 const clickSound = document.getElementById("clickSound");
-const scrollSound = document.getElementById("scrollSound");
+const hoverSound = document.getElementById("hoverSound");
 const bgMusic = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
+
+const enterScreen = document.getElementById("enterScreen");
+const enterBtn = document.getElementById("enterBtn");
 
 function playSound(sound, volume = 0.25) {
   if (!sound) return;
@@ -14,32 +16,38 @@ function playSound(sound, volume = 0.25) {
   sound.play().catch(() => {});
 }
 
-document.querySelectorAll("a, button, .skill-card, .project-card").forEach(item => {
+enterBtn.addEventListener("click", () => {
+  playSound(clickSound, 0.35);
+
+  bgMusic.volume = 0.18;
+  bgMusic.play().catch(() => {});
+
+  enterScreen.classList.add("hide");
+});
+
+document.querySelectorAll("a, button, .skill-card, .project-card, .tools-grid span").forEach(item => {
   item.addEventListener("click", () => {
     playSound(clickSound, 0.3);
   });
+
+  item.addEventListener("mouseenter", () => {
+    playSound(hoverSound, 0.12);
+  });
 });
 
-let lastScrollSound = 0;
+document.querySelectorAll(".btn, .skill-card, .project-card, .tools-grid span").forEach(element => {
+  element.addEventListener("mousemove", e => {
+    const rect = element.getBoundingClientRect();
 
-window.addEventListener("scroll", () => {
-  const now = Date.now();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
 
-  if (now - lastScrollSound > 700) {
-    playSound(scrollSound, 0.08);
-    lastScrollSound = now;
-  }
-});
+    element.style.transform = `translate(${x * 0.07}px, ${y * 0.07}px) scale(1.04)`;
+  });
 
-musicBtn.addEventListener("click", () => {
-  if (bgMusic.paused) {
-    bgMusic.volume = 0.22;
-    bgMusic.play();
-    musicBtn.textContent = "Desativar som";
-  } else {
-    bgMusic.pause();
-    musicBtn.textContent = "Ativar som";
-  }
+  element.addEventListener("mouseleave", () => {
+    element.style.transform = "";
+  });
 });
 
 async function loadProjects() {
