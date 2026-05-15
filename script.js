@@ -23,7 +23,6 @@ enterBtn.addEventListener("click", () => {
 
 document.querySelectorAll("a, button, .skill-card, .project-card, .tools-grid span").forEach(item => {
   item.addEventListener("click", () => playSound(clickSound, 0.3));
-  item.addEventListener("mouseenter", () => playSound(hoverSound, 0.1));
 });
 
 document.querySelectorAll(".btn, .skill-card, .project-card, .tools-grid span").forEach(element => {

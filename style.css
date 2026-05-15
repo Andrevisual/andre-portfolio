@@ -294,8 +294,10 @@ body::after {
 }
 
 .btn:hover {
-  border-color: #00f7ff;
-  box-shadow: 0 0 35px #00f7ff70;
+  color: #03100b;
+  border-color: transparent;
+  background: linear-gradient(135deg, #7dff4d, #00f7ff);
+  box-shadow: 0 0 35px #7dff4d70;
 }
 
 .btn.primary {
