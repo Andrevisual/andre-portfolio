@@ -14,7 +14,6 @@ function playSound(sound, volume = 0.25) {
   sound.play().catch(() => {});
 }
 
-/* BOTÃO PRINCIPAL: ENTRAR NO SITE */
 enterBtn.addEventListener("click", () => {
   playSound(clickSound, 0.4);
 
@@ -24,14 +23,12 @@ enterBtn.addEventListener("click", () => {
   enterScreen.classList.add("hide");
 });
 
-/* SOM DE CLIQUE APENAS QUANDO CLICAR */
 document.querySelectorAll("a, button").forEach(item => {
   item.addEventListener("click", () => {
     playSound(clickSound, 0.3);
   });
 });
 
-/* EFEITO MAGNÉTICO SOMENTE FORA DA TELA INICIAL */
 document.querySelectorAll(".btn, .skill-card, .project-card, .tools-grid a").forEach(element => {
   element.addEventListener("mousemove", e => {
     const rect = element.getBoundingClientRect();
@@ -47,7 +44,6 @@ document.querySelectorAll(".btn, .skill-card, .project-card, .tools-grid a").for
   });
 });
 
-/* PROJETOS DO GITHUB */
 async function loadProjects() {
   try {
     const response = await fetch(
@@ -93,7 +89,6 @@ async function loadProjects() {
 
 loadProjects();
 
-/* ANIMAÇÃO AO ROLAR */
 const revealElements = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
