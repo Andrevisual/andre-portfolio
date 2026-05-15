@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andre Pavan P. | Portfólio</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <audio id="clickSound" src="assets/click.mp3" preload="auto"></audio>
-  <audio id="hoverSound" src="assets/hover.mp3" preload="auto"></audio>
   <audio id="bgMusic" src="assets/music.mp3" loop preload="auto"></audio>
 
   <div id="enterScreen" class="enter-screen">
-    <div class="enter-bg"></div>
-
-    <div class="tool-orbit">
-      <div class="tool t1">Blender</div>
-      <div class="tool t2">After Effects</div>
-      <div class="tool t3">VS Code</div>
-      <div class="tool t4">CapCut</div>
-      <div class="tool t5">Unreal</div>
-      <div class="tool t6">Affinity</div>
-      <div class="tool t7">GitHub</div>
+    <div class="enter-tools">
+      <span>Blender</span>
+      <span>After Effects</span>
+      <span>VS Code</span>
+      <span>CapCut</span>
+      <span>Unreal</span>
+      <span>Affinity</span>
+      <span>GitHub</span>
     </div>
 
     <div class="enter-card">
-      <span>Portfólio Gamer Tech</span>
+      <p>Portfólio Gamer Tech</p>
       <h1>Conheça<br>Andre</h1>
-      <p>Motion • 3D • Web • Edição</p>
+      <span>Motion • 3D • Web • Edição</span>
       <button id="enterBtn">Entrar na experiência</button>
     </div>
   </div>
 
-  <header class="hero" id="home">
+  <header class="hero">
     <nav class="navbar">
       <h2>Andre<span>Pavan</span></h2>
+
       <div class="nav-links">
         <a href="#sobre">Sobre</a>
         <a href="#habilidades">Habilidades</a>
@@ -45,7 +43,7 @@
     </nav>
 
     <div class="hero-content">
-      <div class="hero-text">
+      <div>
         <span class="tag">Portfólio criativo</span>
         <h1>Arte, código e movimento em uma só experiência.</h1>
         <p>
@@ -92,7 +90,7 @@
 
       <article class="skill-card">
         <h3>Edição e Motion</h3>
-        <p>Edição de vídeos, motion design, cortes dinâmicos e efeitos visuais para conteúdo digital.</p>
+        <p>Edição de vídeos, cortes dinâmicos, animações e efeitos visuais para conteúdo digital.</p>
       </article>
 
       <article class="skill-card">
@@ -130,8 +128,8 @@
     <p>Preencha seus dados e envie uma mensagem para meu e-mail.</p>
 
     <form class="contact-form" action="mailto:dedep9881@gmail.com" method="POST" enctype="text/plain">
-      <input type="text" name="Nome" placeholder="Seu nome" required>
-      <input type="email" name="Email" placeholder="Seu e-mail" required>
+      <input type="text" name="Nome" placeholder="Seu nome" required />
+      <input type="email" name="Email" placeholder="Seu e-mail" required />
       <textarea name="Mensagem" placeholder="Escreva sua mensagem..." required></textarea>
       <button type="submit" class="btn primary">Enviar mensagem</button>
     </form>
@@ -141,6 +139,6 @@
     <p>© 2026 Andre Pavan P. — Portfólio criativo.</p>
   </footer>
 
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
