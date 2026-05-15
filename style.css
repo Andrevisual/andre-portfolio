@@ -44,12 +44,11 @@ body::after {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background:
-    radial-gradient(circle at center, #073746, transparent 45%),
-    radial-gradient(circle at 20% 30%, #00fff744, transparent 24%),
-    radial-gradient(circle at 80% 70%, #8cff0040, transparent 24%),
+    radial-gradient(circle at center, #073746 0%, #031b1b 35%, #02070a 75%),
     linear-gradient(135deg, #02070a, #06221d);
   overflow: hidden;
 }
@@ -62,6 +61,7 @@ body::after {
     linear-gradient(#ffffff0a 1px, transparent 1px),
     linear-gradient(90deg, #ffffff0a 1px, transparent 1px);
   background-size: 70px 70px;
+  opacity: 0.55;
 }
 
 .enter-screen.hide {
@@ -71,13 +71,21 @@ body::after {
   transition: 0.8s ease;
 }
 
-.enter-card {
+.enter-panel {
   position: relative;
-  z-index: 2;
-  width: min(820px, 88vw);
-  min-height: 340px;
-  padding: 55px 35px;
-  border-radius: 44px;
+  width: min(1000px, 92vw);
+  height: min(620px, 82vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-box {
+  position: relative;
+  z-index: 5;
+  width: min(680px, 88vw);
+  padding: 52px 35px;
+  border-radius: 42px;
   text-align: center;
   background: linear-gradient(145deg, #071b2f, #050816);
   border: 2px solid #64fff080;
@@ -87,7 +95,7 @@ body::after {
     inset 0 0 45px #00000090;
 }
 
-.enter-card::before {
+.center-box::before {
   content: "";
   position: absolute;
   inset: -5px;
@@ -96,15 +104,9 @@ body::after {
   filter: blur(20px);
   opacity: 0.65;
   z-index: -1;
-  animation: pulseGlow 3s infinite alternate;
 }
 
-@keyframes pulseGlow {
-  from { opacity: 0.35; }
-  to { opacity: 0.85; }
-}
-
-.enter-card p {
+.center-box p {
   color: #7dfff2;
   text-transform: uppercase;
   letter-spacing: 4px;
@@ -112,23 +114,22 @@ body::after {
   font-weight: 900;
 }
 
-.enter-card h1 {
+.center-box h1 {
   margin: 18px 0;
-  font-size: clamp(3.2rem, 9vw, 6.8rem);
+  font-size: clamp(3.4rem, 9vw, 6.8rem);
   line-height: 0.85;
-  text-transform: uppercase;
   color: #ffffff;
   text-shadow: 0 0 24px #00eaff;
 }
 
-.enter-card span {
+.center-box span {
   display: block;
   color: #d5fff7;
   margin-bottom: 30px;
   font-weight: 700;
 }
 
-.enter-card button {
+.center-box button {
   border: none;
   border-radius: 999px;
   padding: 18px 38px;
@@ -138,18 +139,18 @@ body::after {
   font-size: 1rem;
   cursor: pointer;
   box-shadow: 0 0 35px #00f7ff80;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
-.enter-card button:hover {
+.center-box button:hover {
   transform: scale(1.08);
   box-shadow: 0 0 70px #7dff4d;
 }
 
-.enter-tools span {
+.orbit {
   position: absolute;
-  z-index: 3;
-  padding: 14px 20px;
+  z-index: 4;
+  padding: 13px 19px;
   border-radius: 18px;
   background: #ffffff12;
   border: 1px solid #ffffff30;
@@ -157,21 +158,28 @@ body::after {
   color: white;
   font-weight: 900;
   box-shadow: 0 0 24px #00f7ff40;
-  animation: float 4s ease-in-out infinite alternate;
+  animation: orbitFloat 4s ease-in-out infinite alternate;
 }
 
-.enter-tools span:nth-child(1) { top: 18%; left: 16%; }
-.enter-tools span:nth-child(2) { top: 62%; left: 13%; animation-delay: .4s; }
-.enter-tools span:nth-child(3) { top: 18%; right: 16%; animation-delay: .8s; }
-.enter-tools span:nth-child(4) { bottom: 15%; right: 18%; animation-delay: 1.2s; }
-.enter-tools span:nth-child(5) { top: 50%; right: 8%; animation-delay: 1.6s; }
-.enter-tools span:nth-child(6) { bottom: 18%; left: 27%; animation-delay: 2s; }
-.enter-tools span:nth-child(7) { top: 12%; left: 45%; animation-delay: 2.4s; }
+.orbit-1 { top: 10%; left: 15%; }
+.orbit-2 { top: 48%; left: 5%; animation-delay: .3s; }
+.orbit-3 { top: 12%; right: 15%; animation-delay: .6s; }
+.orbit-4 { bottom: 10%; right: 18%; animation-delay: .9s; }
+.orbit-5 { top: 48%; right: 4%; animation-delay: 1.2s; }
+.orbit-6 { bottom: 10%; left: 20%; animation-delay: 1.5s; }
+.orbit-7 { top: 2%; left: 50%; transform: translateX(-50%); animation-delay: 1.8s; }
 
-@keyframes float {
-  from { transform: translateY(0); }
-  to { transform: translateY(-24px); }
+@keyframes orbitFloat {
+  from {
+    margin-top: 0;
+  }
+
+  to {
+    margin-top: -22px;
+  }
 }
+
+
 
 /* SITE */
 
@@ -483,12 +491,15 @@ footer {
     justify-content: center;
   }
 
-  .enter-tools span {
+  .orbit {
     display: none;
   }
 
-  .enter-card {
-    min-height: 280px;
-    padding: 40px 24px;
+  .enter-panel {
+    height: 80vh;
+  }
+
+  .center-box {
+    padding: 38px 22px;
   }
 }
