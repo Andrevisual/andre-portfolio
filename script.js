@@ -143,8 +143,8 @@ async function loadProjects() {
       projectsContainer.innerHTML = `
         <div class="project-card">
           <h3>Projetos em breve</h3>
-          <p>Esta área será preenchida automaticamente quando novos projetos forem publicados no GitHub.</p>
-          <a href="https://github.com/${githubUser}" target="_blank">Abrir GitHub</a>
+          <p>Novos projetos serão exibidos aqui assim que forem publicados no GitHub.</p>
+          <a href="https://github.com/${githubUser}" target="_blank">Ver GitHub</a>
         </div>
       `;
       return;
@@ -156,7 +156,7 @@ async function loadProjects() {
 
       card.innerHTML = `
         <h3>${repo.name}</h3>
-        <p>${repo.description || "Projeto publicado no GitHub. Em breve terá uma descrição personalizada."}</p>
+        <p>${repo.description || "Projeto publicado no GitHub. A descrição completa será adicionada em breve."}</p>
         <p><strong>Linguagem:</strong> ${repo.language || "Não definida"}</p>
         <a href="${repo.html_url}" target="_blank">Abrir projeto</a>
       `;
@@ -168,8 +168,8 @@ async function loadProjects() {
     projectsContainer.innerHTML = `
       <div class="project-card">
         <h3>Projetos em breve</h3>
-        <p>Não foi possível carregar os projetos agora.</p>
-        <a href="https://github.com/${githubUser}" target="_blank">Abrir GitHub</a>
+        <p>Os projetos serão exibidos aqui assim que estiverem disponíveis.</p>
+        <a href="https://github.com/${githubUser}" target="_blank">Ver GitHub</a>
       </div>
     `;
   }
