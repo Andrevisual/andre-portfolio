@@ -132,4 +132,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateActiveLink();
   revealVisibleSections();
+
+  // Copiar chave Pix
+  const copyPixButton = document.getElementById("copyPixButton");
+  const pixKey = document.getElementById("pixKey");
+
+  if (copyPixButton && pixKey) {
+    copyPixButton.addEventListener("click", async () => {
+      const value = pixKey.textContent.trim();
+
+      try {
+        await navigator.clipboard.writeText(value);
+        copyPixButton.textContent = "Pix copiado!";
+      } catch (error) {
+        copyPixButton.textContent = "Copie: " + value;
+      }
+
+      setTimeout(() => {
+        copyPixButton.textContent = "Copiar Pix";
+      }, 2200);
+    });
+  }
 });
