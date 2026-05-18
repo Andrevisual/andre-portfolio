@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfólio de André Pavan: motion, 3D, web, edição e SmartCapital 1.0." />
-  <title>André Pavan | Portfólio SmartCapital</title>
+  <title>André Pavan | Portfólio & Apps</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=1.0.3" />
 </head>
 
 <body>
@@ -14,52 +14,67 @@
 
   <!-- Tela inicial -->
   <main id="intro" class="intro-screen">
-    <div class="intro-grid"></div>
+    <div class="intro-panel">
+      <a class="tool-orbit orbit-1" href="https://www.blender.org/" target="_blank" rel="noreferrer">
+        <strong>Bl</strong>
+        <span>Blender</span>
+      </a>
 
-    <section class="intro-card" aria-label="Tela inicial do portfólio">
-      <div class="intro-topline">PORTFÓLIO • SMARTCAPITAL • TECH</div>
+      <a class="tool-orbit orbit-2" href="https://www.adobe.com/products/aftereffects.html" target="_blank" rel="noreferrer">
+        <strong>Ae</strong>
+        <span>After Effects</span>
+      </a>
 
-      <div class="intro-logo" aria-hidden="true">
-        <span>SC</span>
-      </div>
+      <a class="tool-orbit orbit-3" href="https://github.com/" target="_blank" rel="noreferrer">
+        <strong>GH</strong>
+        <span>GitHub</span>
+      </a>
 
-      <h1>
-        Conheça quem é
-        <strong>André Pavan</strong>
-      </h1>
+      <a class="tool-orbit orbit-4" href="https://code.visualstudio.com/" target="_blank" rel="noreferrer">
+        <strong>VS</strong>
+        <span>VS Code</span>
+      </a>
 
-      <p>
-        Motion, 3D, Web, Edição e desenvolvimento de projetos próprios com visual premium.
-      </p>
+      <a class="tool-orbit orbit-5" href="https://www.unrealengine.com/" target="_blank" rel="noreferrer">
+        <strong>U</strong>
+        <span>Unreal</span>
+      </a>
 
-      <div class="intro-mini-dashboard" aria-label="Resumo do portfólio">
-        <article>
-          <span>Projeto</span>
-          <strong>SmartCapital</strong>
-        </article>
+      <a class="tool-orbit orbit-6" href="https://www.capcut.com/" target="_blank" rel="noreferrer">
+        <strong>Cc</strong>
+        <span>CapCut</span>
+      </a>
 
-        <article>
-          <span>Foco</span>
-          <strong>Web + App</strong>
-        </article>
+      <a class="tool-orbit orbit-7" href="https://affinity.serif.com/" target="_blank" rel="noreferrer">
+        <strong>Af</strong>
+        <span>Affinity</span>
+      </a>
 
-        <article>
-          <span>Visual</span>
-          <strong>Gold Tech</strong>
-        </article>
-      </div>
+      <section class="intro-content" aria-label="Entrada do portfólio">
+        <p class="intro-label">PORTFÓLIO & APPS</p>
 
-      <button id="enterButton" class="main-button" type="button">
-        Entrar na experiência
-        <span>→</span>
-      </button>
-    </section>
+        <h1>André Pavan</h1>
+
+        <p class="intro-subtitle">
+          Motion • 3D • Web • SmartCapital
+        </p>
+
+        <p class="intro-text">
+          Projetos digitais, criação visual e aplicativos com estética premium.
+        </p>
+
+        <button id="enterButton" class="enter-button" type="button">
+          Entrar na experiência
+          <span>→</span>
+        </button>
+      </section>
+    </div>
   </main>
 
   <!-- Site principal -->
   <div id="site" class="site hidden">
     <header class="topbar">
-      <a class="brand" href="#home" aria-label="Voltar para o início">
+      <a class="brand" href="#home">
         <span class="brand-mark">SC</span>
         <span>André Pavan</span>
       </a>
@@ -79,8 +94,8 @@
       </nav>
     </header>
 
-    <section id="home" class="hero section-padding">
-      <div class="hero-content reveal">
+    <section id="home" class="hero section-space">
+      <div class="hero-card reveal">
         <span class="section-tag">PORTFÓLIO CRIATIVO</span>
 
         <h2>André Pavan</h2>
@@ -89,7 +104,7 @@
 
         <p class="hero-text">
           Estudante de Ciência da Computação, editor, criador 3D e desenvolvedor de projetos próprios.
-          Aqui você encontra meus estudos, trabalhos e aplicativos organizados com estética profissional.
+          Aqui você encontra meus estudos, trabalhos e aplicativos organizados com visual profissional.
         </p>
 
         <div class="hero-actions">
@@ -98,26 +113,26 @@
         </div>
       </div>
 
-      <aside class="dashboard-preview reveal" aria-label="Painel visual inspirado no SmartCapital">
-        <div class="preview-header">
-          <span>Painel criativo</span>
-          <strong>Gold Mode</strong>
+      <aside class="smart-preview reveal" aria-label="Preview visual inspirado no SmartCapital">
+        <div class="preview-top">
+          <span>SmartCapital visual</span>
+          <strong>Gold Tech</strong>
         </div>
 
-        <div class="preview-cards">
+        <div class="preview-stats">
           <article>
-            <span>Motion</span>
-            <strong>After Effects</strong>
+            <span>Projetos</span>
+            <strong>Web + Apps</strong>
           </article>
 
           <article>
-            <span>3D</span>
-            <strong>Blender</strong>
+            <span>Design</span>
+            <strong>Motion/3D</strong>
           </article>
 
           <article>
-            <span>Web</span>
-            <strong>HTML/CSS/JS</strong>
+            <span>Estilo</span>
+            <strong>Premium</strong>
           </article>
         </div>
 
@@ -132,7 +147,7 @@
       </aside>
     </section>
 
-    <section id="sobre" class="section section-padding reveal">
+    <section id="sobre" class="section section-space reveal">
       <span class="section-tag">SOBRE MIM</span>
 
       <div class="section-head">
@@ -156,7 +171,7 @@
       </div>
     </section>
 
-    <section id="habilidades" class="section section-padding reveal">
+    <section id="habilidades" class="section section-space reveal">
       <span class="section-tag">HABILIDADES</span>
 
       <div class="section-head">
@@ -193,7 +208,7 @@
       </div>
     </section>
 
-    <section id="smartcapital" class="section section-padding reveal">
+    <section id="smartcapital" class="section section-space reveal">
       <span class="section-tag">APLICATIVO WINDOWS</span>
 
       <div class="section-head">
@@ -211,8 +226,9 @@
           <h3>Seu financeiro com visual premium e dados locais.</h3>
 
           <p>
-            A versão 1.0 traz painel com gráficos, saldos, despesas, cartões, limites,
-            relatórios em PDF, recibos, histórico, investimentos, proventos e tutorial inicial.
+            A versão 1.0 traz painel com gráficos, controle de saldos, despesas,
+            cartões, limites, relatórios em PDF, recibos, histórico, investimentos,
+            proventos e tutorial inicial.
           </p>
 
           <ul class="feature-list">
@@ -257,36 +273,7 @@
       </div>
     </section>
 
-    <section class="section section-padding reveal">
-      <span class="section-tag">PRÓXIMOS CONTEÚDOS</span>
-
-      <div class="section-head">
-        <h2>Vídeos, posts e projetos.</h2>
-        <p>Espaço para organizar conteúdos, estudos e atualizações futuras.</p>
-      </div>
-
-      <div class="cards-grid">
-        <article class="info-card">
-          <h3>Vídeos</h3>
-          <p>Conteúdo visual, motion, edição e apresentação de projetos.</p>
-          <span class="status">Em breve</span>
-        </article>
-
-        <article class="info-card">
-          <h3>Posts</h3>
-          <p>Ideias, bastidores, aprendizados e evolução dos meus projetos.</p>
-          <span class="status">Em breve</span>
-        </article>
-
-        <article class="info-card">
-          <h3>Projetos</h3>
-          <p>Aplicativos, páginas, experiências web e estudos criativos.</p>
-          <span class="status">Em breve</span>
-        </article>
-      </div>
-    </section>
-
-    <section id="contato" class="section section-padding contact reveal">
+    <section id="contato" class="section section-space contact reveal">
       <span class="section-tag">CONTATO</span>
 
       <h2>Vamos conversar?</h2>
@@ -301,11 +288,11 @@
     </section>
 
     <footer class="footer">
-      <p>© 2026 André Pavan — Portfólio criativo.</p>
+      <p>© 2026 André Pavan — Portfólio & Apps.</p>
     </footer>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=1.0.3" defer></script>
 </body>
 </html>
 
