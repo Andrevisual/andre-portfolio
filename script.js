@@ -3,36 +3,31 @@ const mainSite = document.getElementById("mainSite");
 const enterBtn = document.getElementById("enterBtn");
 const clickSound = document.getElementById("clickSound");
 const bgMusic = document.getElementById("bgMusic");
-const particlesContainer = document.getElementById("spaceParticles");
-const scrollFade = document.getElementById("scrollFade");
 
-let siteAberto = false;
+let abriu = false;
 
 function tocarClick() {
   if (!clickSound) return;
 
   try {
     clickSound.currentTime = 0;
-    clickSound.volume = 0.3;
+    clickSound.volume = 0.25;
     clickSound.play().catch(() => {});
-  } catch (error) {}
-}
-
-function iniciarMusica() {
-  if (!bgMusic) return;
-
-  try {
-    bgMusic.volume = 0.1;
-    bgMusic.play().catch(() => {});
-  } catch (error) {}
+  } catch (e) {}
 }
 
 function abrirSite() {
-  if (siteAberto) return;
+  if (abriu) return;
+  abriu = true;
 
-  siteAberto = true;
   tocarClick();
-  iniciarMusica();
+
+  if (bgMusic) {
+    try {
+      bgMusic.volume = 0.08;
+      bgMusic.play().catch(() => {});
+    } catch (e) {}
+  }
 
   if (enterScreen) {
     enterScreen.classList.add("hide");
@@ -42,28 +37,25 @@ function abrirSite() {
 
       if (mainSite) {
         mainSite.classList.add("show");
-        window.scrollTo({
-          top: 0,
-          behavior: "instant"
-        });
+        window.scrollTo(0, 0);
       }
-    }, 540);
+    }, 450);
   }
 }
 
 if (enterBtn) {
-  enterBtn.addEventListener("click", abrirSite, { once: true });
+  enterBtn.onclick = abrirSite;
 }
 
-document.addEventListener("keydown", (event) => {
-  if (!siteAberto && (event.key === "Enter" || event.key === " ")) {
+document.addEventListener("keydown", function (event) {
+  if (!abriu && (event.key === "Enter" || event.key === " ")) {
     event.preventDefault();
     abrirSite();
   }
 });
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener("click", (event) => {
+  link.addEventListener("click", function (event) {
     const alvo = document.querySelector(link.getAttribute("href"));
 
     if (!alvo) return;
@@ -77,78 +69,3 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     });
   });
 });
-
-function criarParticulas() {
-  if (!particlesContainer) return;
-
-  const total = window.innerWidth < 760 ? 18 : 36;
-
-  particlesContainer.innerHTML = "";
-
-  for (let i = 0; i < total; i++) {
-    const p = document.createElement("span");
-    p.className = "particle";
-
-    p.style.left = `${Math.random() * 100}%`;
-    p.style.top = `${Math.random() * 110}%`;
-    p.style.opacity = `${0.25 + Math.random() * 0.75}`;
-    p.style.animationDuration = `${8 + Math.random() * 12}s`;
-    p.style.animationDelay = `${Math.random() * 8}s`;
-
-    particlesContainer.appendChild(p);
-  }
-}
-
-criarParticulas();
-
-let resizeTimer;
-
-window.addEventListener("resize", () => {
-  clearTimeout(resizeTimer);
-
-  resizeTimer = setTimeout(() => {
-    criarParticulas();
-  }, 250);
-});
-
-const revelaveis = document.querySelectorAll(".reveal");
-
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.12
-    }
-  );
-
-  revelaveis.forEach((el) => observer.observe(el));
-} else {
-  revelaveis.forEach((el) => el.classList.add("active"));
-}
-
-let fadeTimeout;
-
-window.addEventListener(
-  "scroll",
-  () => {
-    if (!scrollFade) return;
-
-    scrollFade.classList.add("active");
-
-    clearTimeout(fadeTimeout);
-
-    fadeTimeout = setTimeout(() => {
-      scrollFade.classList.remove("active");
-    }, 160);
-  },
-  {
-    passive: true
-  }
-);
