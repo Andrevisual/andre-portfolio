@@ -2,7 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const intro = document.getElementById("intro");
   const site = document.getElementById("site");
   const enterButton = document.getElementById("enterButton");
+
   const clickSound = document.getElementById("clickSound");
+  const bgMusic = document.getElementById("bgMusic");
+
   const menuButton = document.getElementById("menuButton");
   const navMenu = document.getElementById("navMenu");
 
@@ -14,7 +17,19 @@ document.addEventListener("DOMContentLoaded", () => {
       clickSound.volume = 0.28;
       clickSound.play().catch(() => {});
     } catch (error) {
-      // Alguns navegadores bloqueiam som automático. O site continua normal.
+      // Navegador pode bloquear áudio. O site continua normal.
+    }
+  }
+
+  function playBackgroundMusic() {
+    if (!bgMusic) return;
+
+    try {
+      bgMusic.volume = 0.18;
+      bgMusic.loop = true;
+      bgMusic.play().catch(() => {});
+    } catch (error) {
+      // Navegador pode bloquear áudio em alguns casos.
     }
   }
 
@@ -30,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showSite() {
     playClick();
+    playBackgroundMusic();
 
     if (intro) {
       intro.classList.add("hidden");
