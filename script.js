@@ -14,22 +14,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       clickSound.currentTime = 0;
-      clickSound.volume = 0.28;
+      clickSound.volume = 0.25;
       clickSound.play().catch(() => {});
-    } catch (error) {
-      // Navegador pode bloquear áudio. O site continua normal.
-    }
+    } catch (error) {}
   }
 
-  function playBackgroundMusic() {
+  async function playBackgroundMusic() {
     if (!bgMusic) return;
 
     try {
       bgMusic.volume = 0.18;
       bgMusic.loop = true;
-      bgMusic.play().catch(() => {});
+      bgMusic.currentTime = 0;
+      await bgMusic.play();
     } catch (error) {
-      // Navegador pode bloquear áudio em alguns casos.
+      console.log("Música bloqueada ou não encontrada:", error);
     }
   }
 
@@ -65,6 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (enterButton) {
     enterButton.addEventListener("click", showSite);
+    enterButton.addEventListener("touchstart", () => {
+      playBackgroundMusic();
+    }, { once: true });
   }
 
   if (menuButton && navMenu) {
@@ -149,7 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
   updateActiveLink();
   revealVisibleSections();
 
-  // Copiar chave Pix
   const copyPixButton = document.getElementById("copyPixButton");
   const pixKey = document.getElementById("pixKey");
 
