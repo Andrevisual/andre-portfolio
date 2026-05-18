@@ -8,143 +8,13 @@
 
   <link rel="stylesheet" href="style.css" />
 
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    section,
-    header {
-      scroll-margin-top: 90px;
-    }
-
-
-    .requirements-box {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border: 1px solid rgba(255, 213, 79, 0.28);
-      border-radius: 16px;
-      background: rgba(255, 213, 79, 0.06);
-    }
-
-    .requirements-box h4 {
-      margin: 0 0 10px;
-      color: #ffd54f;
-      font-size: 1rem;
-    }
-
-    .requirements-box ul {
-      margin: 0;
-      padding-left: 18px;
-      color: #e8e8e8;
-      line-height: 1.65;
-    }
-
-    .requirements-note {
-      margin-top: 10px;
-      color: #bdbdbd;
-      font-size: 0.92rem;
-    }
-
-
-    .site-name {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 0.28rem;
-      white-space: nowrap;
-      line-height: 1;
-    }
-
-    .site-name span {
-      display: inline-block;
-      white-space: nowrap;
-    }
-
-    .smartcapital-features {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin: 18px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .smartcapital-features li {
-      border: 1px solid rgba(255, 213, 79, 0.22);
-      border-radius: 999px;
-      padding: 9px 12px;
-      background: rgba(255, 213, 79, 0.07);
-      color: #f5f5f5;
-      font-size: 0.92rem;
-    }
-
-    .highlight-card,
-    .content-card,
-    .glass-block {
-      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
-    }
-
-    .highlight-card:hover,
-    .content-card:hover,
-    .glass-block:hover {
-      transform: translateY(-3px);
-      border-color: rgba(255, 213, 79, 0.45);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
-    }
-
-    .btn {
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 760px) {
-      .navbar {
-        align-items: center;
-        gap: 12px;
-      }
-
-      .site-name {
-        font-size: 1.05rem;
-        letter-spacing: -0.02em;
-      }
-
-      .nav-links {
-        gap: 8px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      .hero h1,
-      .center-box h1 {
-        font-size: clamp(2.2rem, 14vw, 4.2rem);
-        line-height: 0.95;
-        word-break: normal;
-        overflow-wrap: normal;
-      }
-
-      .smartcapital-features {
-        grid-template-columns: 1fr;
-      }
-
-      .requirements-box {
-        padding: 14px;
-      }
-    }
-
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-    }
-  </style>
-
+  <meta
+    name="description"
+    content="Portfólio criativo de André Pavan: Motion, 3D, Web, edição e SmartCapital."
+  />
 </head>
-<body>
 
+<body>
   <audio id="clickSound" src="assets/click.mp3" preload="auto"></audio>
   <audio id="bgMusic" src="assets/music.mp3" loop preload="auto"></audio>
 
@@ -156,72 +26,89 @@
     <div class="intro-stars"></div>
 
     <div class="enter-panel">
-
-      <a class="orbit orbit-1" href="https://www.blender.org/" target="_blank" aria-label="Blender">
+      <a class="orbit orbit-1" href="https://www.blender.org/" target="_blank" rel="noopener noreferrer" aria-label="Blender">
         <span class="badge badge-orange">Bl</span>
         <small>Blender</small>
       </a>
 
-      <a class="orbit orbit-2" href="https://www.adobe.com/products/aftereffects.html" target="_blank" aria-label="After Effects">
+      <a class="orbit orbit-2" href="https://www.adobe.com/products/aftereffects.html" target="_blank" rel="noopener noreferrer" aria-label="After Effects">
         <span class="badge badge-purple">Ae</span>
         <small>After Effects</small>
       </a>
 
-      <a class="orbit orbit-3" href="https://code.visualstudio.com/" target="_blank" aria-label="VS Code">
+      <a class="orbit orbit-3" href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer" aria-label="VS Code">
         <span class="badge badge-blue">VS</span>
         <small>VS Code</small>
       </a>
 
-      <a class="orbit orbit-4" href="https://www.capcut.com/" target="_blank" aria-label="CapCut">
+      <a class="orbit orbit-4" href="https://www.capcut.com/" target="_blank" rel="noopener noreferrer" aria-label="CapCut">
         <span class="badge badge-white">Cc</span>
         <small>CapCut</small>
       </a>
 
-      <a class="orbit orbit-5" href="https://www.unrealengine.com/" target="_blank" aria-label="Unreal Engine">
+      <a class="orbit orbit-5" href="https://www.unrealengine.com/" target="_blank" rel="noopener noreferrer" aria-label="Unreal Engine">
         <span class="badge badge-white">U</span>
         <small>Unreal</small>
       </a>
 
-      <a class="orbit orbit-6" href="https://affinity.serif.com/" target="_blank" aria-label="Affinity">
+      <a class="orbit orbit-6" href="https://affinity.serif.com/" target="_blank" rel="noopener noreferrer" aria-label="Affinity">
         <span class="badge badge-pink">Af</span>
         <small>Affinity</small>
       </a>
 
-      <a class="orbit orbit-7" href="https://github.com/" target="_blank" aria-label="GitHub">
+      <a class="orbit orbit-7" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
         <span class="badge badge-white">GH</span>
         <small>GitHub</small>
       </a>
 
-      <div class="center-box">
-        <p>PORTFÓLIO GAMER TECH</p>
+      <div class="intro-content">
+        <div class="intro-left">
+          <p class="intro-kicker">PORTFÓLIO GAMER TECH</p>
 
-        <h1>
-          <span>CONHEÇA</span>
-          ANDRÉ PAVAN
-        </h1>
+          <h1>
+            Conheça quem é
+            <span>André Pavan</span>
+          </h1>
 
-        <div class="thin-line"></div>
+          <p class="intro-text">
+            Estudante de Ciência da Computação, criador visual, editor, desenvolvedor web
+            e apaixonado por tecnologia, jogos, 3D e experiências digitais.
+          </p>
 
-        <strong>Motion • 3D • Web • Edição</strong>
+          <button id="enterBtn" type="button">
+            Entrar na experiência
+            <span>→</span>
+          </button>
+        </div>
 
-        <button id="enterBtn">
-          Entrar na experiência
-          <span>→</span>
-        </button>
+        <div class="intro-right" aria-hidden="true">
+          <div class="big-name">
+            André<br />
+            Pavan
+          </div>
+
+          <div class="intro-line"></div>
+
+          <strong>Motion • 3D • Web • Edição</strong>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- SITE -->
   <div id="mainSite" class="main-site">
-
     <nav class="navbar">
-      <h2 class="site-name"><span>André</span><span>Pavan</span></h2>
+      <h2 class="site-name">
+        <span>André</span>
+        <span>Pavan</span>
+      </h2>
 
       <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#sobre">Sobre</a>
         <a href="#habilidades">Habilidades</a>
+        <a href="#videos">Vídeos</a>
+        <a href="#smartcapital">SmartCapital</a>
         <a href="#contato">Contato</a>
       </div>
     </nav>
@@ -256,7 +143,7 @@
 
       <div class="glass-block">
         <p>
-          Meu nome é André Pavan Sou estudante de Ciência da Computação e venho de experiências
+          Meu nome é André Pavan. Sou estudante de Ciência da Computação e venho de experiências
           com pintura, solda, montagem e edição.
         </p>
 
@@ -298,16 +185,16 @@
       <h3 class="tools-title">Ferramentas que uso</h3>
 
       <div class="tools-grid">
-        <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank">HTML</a>
-        <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">CSS</a>
-        <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank">JavaScript</a>
-        <a href="https://github.com/" target="_blank">GitHub</a>
-        <a href="https://www.blender.org/" target="_blank">Blender</a>
-        <a href="https://www.adobe.com/products/aftereffects.html" target="_blank">After Effects</a>
-        <a href="https://www.capcut.com/" target="_blank">CapCut</a>
-        <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>
-        <a href="https://www.unrealengine.com/" target="_blank">Unreal</a>
-        <a href="https://affinity.serif.com/" target="_blank">Affinity</a>
+        <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank" rel="noopener noreferrer">HTML</a>
+        <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank" rel="noopener noreferrer">CSS</a>
+        <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">JavaScript</a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.blender.org/" target="_blank" rel="noopener noreferrer">Blender</a>
+        <a href="https://www.adobe.com/products/aftereffects.html" target="_blank" rel="noopener noreferrer">After Effects</a>
+        <a href="https://www.capcut.com/" target="_blank" rel="noopener noreferrer">CapCut</a>
+        <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">VS Code</a>
+        <a href="https://www.unrealengine.com/" target="_blank" rel="noopener noreferrer">Unreal</a>
+        <a href="https://affinity.serif.com/" target="_blank" rel="noopener noreferrer">Affinity</a>
       </div>
     </section>
 
@@ -357,6 +244,7 @@
       <div class="smartcapital-card highlight-card">
         <div>
           <h3>SmartCapital 1.0 — Controle financeiro completo</h3>
+
           <p>
             A versão 1.0 traz um painel mais completo, gráficos financeiros, controle de saldos,
             despesas, cartões, limites, relatórios em PDF, recibos, histórico, investimentos,
@@ -380,6 +268,7 @@
 
           <div class="requirements-box">
             <h4>Requisitos mínimos para rodar</h4>
+
             <ul>
               <li><strong>Sistema:</strong> Windows 10 ou Windows 11, 64 bits.</li>
               <li><strong>Processador Intel:</strong> Core i3 de 3ª geração ou superior; recomendado Core i5 de 3ª geração ou melhor.</li>
@@ -388,8 +277,10 @@
               <li><strong>Vídeo:</strong> placa integrada Intel HD, Radeon Vega ou equivalente. Não precisa placa de vídeo dedicada.</li>
               <li><strong>Armazenamento:</strong> cerca de 300 MB livres para o app, assets e relatórios.</li>
             </ul>
+
             <p class="requirements-note">
-              O SmartCapital é leve e funciona offline. Internet só é necessária para recursos opcionais, como buscar cotações de investimentos.
+              O SmartCapital é leve e funciona offline. Internet só é necessária para recursos opcionais,
+              como buscar cotações de investimentos.
             </p>
           </div>
         </div>
@@ -397,10 +288,13 @@
         <div class="download-actions">
           <a
             class="btn primary"
-            href="https://github.com/Andrévisual/andre-portfolio/releases/download/v1.00-beta/SmartCapital_v1.0.zip"
+            href="https://github.com/Andrevisual/andre-portfolio/releases/download/v1.00-beta/SmartCapital_v1.0.zip"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Baixar SmartCapital 1.0
           </a>
+
           <a class="btn" href="#contato">Falar comigo</a>
         </div>
       </div>
@@ -452,8 +346,9 @@
         class="btn primary contact-link"
         href="https://www.linkedin.com/in/andrepdesenvolper/"
         target="_blank"
+        rel="noopener noreferrer"
       >
-        Entre em contato
+        Entrar em contato
       </a>
     </section>
 
@@ -461,21 +356,6 @@
       <p>© 2026 André Pavan — Portfólio criativo.</p>
     </footer>
   </div>
-
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
-      link.addEventListener("click", (event) => {
-        const alvo = document.querySelector(link.getAttribute("href"));
-        if (!alvo) return;
-
-        event.preventDefault();
-        alvo.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      });
-    });
-  </script>
 
   <script src="script.js"></script>
 </body>
