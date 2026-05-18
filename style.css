@@ -882,3 +882,141 @@ header {
   }
 }
 
+
+/* AJUSTES 1.0.4 */
+
+/* Remove o visual do SC no topo: agora fica só o nome */
+.brand {
+  color: var(--gold);
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+}
+
+.brand:hover {
+  filter: brightness(1.08);
+}
+
+/* Gráfico do painel com movimento suave */
+.preview-chart span {
+  animation: barFloat 2.8s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+.preview-chart span:nth-child(2) {
+  animation-delay: .18s;
+}
+
+.preview-chart span:nth-child(3) {
+  animation-delay: .34s;
+}
+
+.preview-chart span:nth-child(4) {
+  animation-delay: .52s;
+}
+
+.preview-chart span:nth-child(5) {
+  animation-delay: .70s;
+}
+
+.preview-chart span:nth-child(6) {
+  animation-delay: .88s;
+}
+
+@keyframes barFloat {
+  0%, 100% {
+    transform: scaleY(0.92);
+    filter: brightness(0.95);
+  }
+
+  50% {
+    transform: scaleY(1.08);
+    filter: brightness(1.18);
+  }
+}
+
+/* Seção de apoio */
+.support-section {
+  position: relative;
+}
+
+.support-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, .75fr);
+  gap: 24px;
+  align-items: stretch;
+  margin-top: 26px;
+  padding: 24px;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 216, 77, .20);
+  background:
+    radial-gradient(circle at 80% 0%, rgba(255, 216, 77, .11), transparent 34%),
+    rgba(10, 16, 28, .78);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .28);
+}
+
+.support-info h2 {
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -.04em;
+}
+
+.support-info p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.pix-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 216, 77, .22);
+  background:
+    linear-gradient(180deg, rgba(255, 216, 77, .08), rgba(255,255,255,.025));
+  text-align: center;
+}
+
+.pix-box span {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.pix-box strong {
+  display: block;
+  padding: 14px 12px;
+  border-radius: 16px;
+  color: var(--gold);
+  background: rgba(0,0,0,.22);
+  border: 1px solid rgba(255,255,255,.08);
+  word-break: break-all;
+}
+
+.pix-box small {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .brand {
+    font-size: 1.18rem;
+  }
+
+  .support-card {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .pix-box {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview-chart span {
+    animation: none;
+  }
+}
+
