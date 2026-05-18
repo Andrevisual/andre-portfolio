@@ -1,6 +1,3 @@
-const githubUser = "Andrevisual";
-
-const projectsContainer = document.getElementById("projectsContainer");
 const clickSound = document.getElementById("clickSound");
 const bgMusic = document.getElementById("bgMusic");
 const enterScreen = document.getElementById("enterScreen");
@@ -115,7 +112,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 /* EFEITO LEVE */
-document.querySelectorAll(".btn, .tools-grid a, .project-card, .skill-card, .content-card").forEach(element => {
+document.querySelectorAll(".btn, .tools-grid a, .smartcapital-card, .skill-card, .content-card").forEach(element => {
   element.addEventListener("mousemove", e => {
     const rect = element.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
@@ -128,54 +125,6 @@ document.querySelectorAll(".btn, .tools-grid a, .project-card, .skill-card, .con
     element.style.transform = "";
   });
 });
-
-/* GITHUB */
-async function loadProjects() {
-  try {
-    const response = await fetch(
-      `https://api.github.com/users/${githubUser}/repos?sort=updated&direction=desc&per_page=6`
-    );
-
-    const repos = await response.json();
-    projectsContainer.innerHTML = "";
-
-    if (!Array.isArray(repos) || repos.length === 0) {
-      projectsContainer.innerHTML = `
-        <div class="project-card">
-          <h3>Projetos em breve</h3>
-          <p>Novos projetos serão exibidos aqui assim que forem publicados no GitHub.</p>
-          <a href="https://github.com/${githubUser}" target="_blank">Ver GitHub</a>
-        </div>
-      `;
-      return;
-    }
-
-    repos.forEach(repo => {
-      const card = document.createElement("article");
-      card.className = "project-card";
-
-      card.innerHTML = `
-        <h3>${repo.name}</h3>
-        <p>${repo.description || "Projeto publicado no GitHub. A descrição completa será adicionada em breve."}</p>
-        <p><strong>Linguagem:</strong> ${repo.language || "Não definida"}</p>
-        <a href="${repo.html_url}" target="_blank">Abrir projeto</a>
-      `;
-
-      projectsContainer.appendChild(card);
-    });
-
-  } catch {
-    projectsContainer.innerHTML = `
-      <div class="project-card">
-        <h3>Projetos em breve</h3>
-        <p>Os projetos serão exibidos aqui assim que estiverem disponíveis.</p>
-        <a href="https://github.com/${githubUser}" target="_blank">Ver GitHub</a>
-      </div>
-    `;
-  }
-}
-
-loadProjects();
 
 /* REVEAL */
 const revealElements = document.querySelectorAll(".reveal");
