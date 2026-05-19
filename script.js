@@ -9,12 +9,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuButton = document.getElementById("menuButton");
   const navMenu = document.getElementById("navMenu");
 
+  const copyPixButton = document.getElementById("copyPixButton");
+  const pixKey = document.getElementById("pixKey");
+
+  const VOLUME_REDUZIDO = 0.75;
+
+  const CLICK_VOLUME = 0.25 * VOLUME_REDUZIDO;
+  const MUSIC_VOLUME = 0.18 * VOLUME_REDUZIDO;
+
+  let siteAberto = false;
+
   function playClick() {
     if (!clickSound) return;
 
     try {
+      clickSound.pause();
       clickSound.currentTime = 0;
-      clickSound.volume = 0.25;
+      clickSound.volume = CLICK_VOLUME;
       clickSound.play().catch(() => {});
     } catch (error) {}
   }
@@ -23,10 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!bgMusic) return;
 
     try {
-      bgMusic.volume = 0.18;
+      bgMusic.volume = MUSIC_VOLUME;
       bgMusic.loop = true;
-      bgMusic.currentTime = 0;
-      await bgMusic.play();
+
+      if (bgMusic.paused) {
+        await bgMusic.play();
+      }
     } catch (error) {
       console.log("Música bloqueada ou não encontrada:", error);
     }
@@ -42,37 +55,88 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function updateActiveLink() {
+    const sections = document.querySelectorAll("section[id], header[id]");
+    const navLinks = document.querySelectorAll(".nav-menu a");
+
+    let currentId = "";
+
+    sections.forEach((section) => {
+      const top = section.offsetTop - 140;
+
+      if (window.scrollY >= top) {
+        currentId = section.id;
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === `#${currentId}`
+      );
+    });
+  }
+
   function showSite() {
+    if (siteAberto) return;
+
+    siteAberto = true;
+
     playClick();
     playBackgroundMusic();
 
     if (intro) {
-      intro.classList.add("hidden");
+      intro.classList.add("intro-exit");
+
+      setTimeout(() => {
+        intro.classList.add("hidden");
+      }, 450);
     }
 
     if (site) {
       site.classList.remove("hidden");
+
+      requestAnimationFrame(() => {
+        site.classList.add("site-visible");
+      });
     }
 
-    window.scrollTo({ top: 0, behavior: "auto" });
+    window.scrollTo({
+      top: 0,
+      behavior: "auto"
+    });
 
-    requestAnimationFrame(() => {
+    setTimeout(() => {
       revealVisibleSections();
       updateActiveLink();
-    });
+    }, 80);
   }
 
   if (enterButton) {
     enterButton.addEventListener("click", showSite);
-    enterButton.addEventListener("touchstart", () => {
-      playBackgroundMusic();
-    }, { once: true });
+
+    enterButton.addEventListener(
+      "touchstart",
+      () => {
+        playBackgroundMusic();
+      },
+      { once: true }
+    );
   }
+
+  document.addEventListener("keydown", (event) => {
+    if (!siteAberto && (event.key === "Enter" || event.key === " ")) {
+      event.preventDefault();
+      showSite();
+    }
+  });
 
   if (menuButton && navMenu) {
     menuButton.addEventListener("click", () => {
       const isOpen = navMenu.classList.toggle("open");
+
       menuButton.setAttribute("aria-expanded", String(isOpen));
+
       playClick();
     });
   }
@@ -85,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!target) return;
 
       event.preventDefault();
+
       playClick();
 
       if (navMenu) {
@@ -114,7 +179,9 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      { threshold: 0.15 }
+      {
+        threshold: 0.15
+      }
     );
 
     revealItems.forEach((item) => observer.observe(item));
@@ -122,41 +189,26 @@ document.addEventListener("DOMContentLoaded", () => {
     revealItems.forEach((item) => item.classList.add("visible"));
   }
 
-  const sections = document.querySelectorAll("section[id], header[id]");
-  const navLinks = document.querySelectorAll(".nav-menu a");
-
-  function updateActiveLink() {
-    let currentId = "";
-
-    sections.forEach((section) => {
-      const top = section.offsetTop - 140;
-
-      if (window.scrollY >= top) {
-        currentId = section.id;
-      }
-    });
-
-    navLinks.forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
-    });
-  }
-
-  window.addEventListener("scroll", updateActiveLink, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      updateActiveLink();
+    },
+    {
+      passive: true
+    }
+  );
 
   window.addEventListener("load", () => {
     updateActiveLink();
     revealVisibleSections();
   });
 
-  updateActiveLink();
-  revealVisibleSections();
-
-  const copyPixButton = document.getElementById("copyPixButton");
-  const pixKey = document.getElementById("pixKey");
-
   if (copyPixButton && pixKey) {
     copyPixButton.addEventListener("click", async () => {
       const value = pixKey.textContent.trim();
+
+      playClick();
 
       try {
         await navigator.clipboard.writeText(value);
@@ -170,4 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 2200);
     });
   }
+
+  updateActiveLink();
+  revealVisibleSections();
 });
