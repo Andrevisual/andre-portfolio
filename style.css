@@ -1153,3 +1153,138 @@ header {
   background: #ffd84d !important;
   color: #07101e !important;
 }
+/* =========================
+   AJUSTES FINAIS 1.0.6
+   Compatível com script.js novo
+   ========================= */
+
+/* Transição da tela inicial */
+.intro-screen {
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    visibility 0.45s ease;
+}
+
+.intro-screen.intro-exit {
+  opacity: 0;
+  transform: scale(1.015);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Site principal aparece suave */
+.site {
+  opacity: 1;
+  transition: opacity 0.45s ease;
+}
+
+.site.hidden {
+  display: none !important;
+}
+
+.site.site-visible {
+  opacity: 1;
+}
+
+/* Corrige logo do topo */
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Corrige logo do card de download */
+.download-logo-img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 16px;
+  border-radius: 22px;
+}
+
+/* Botões começam escuros, não amarelos */
+.button.primary,
+.button.secondary,
+.enter-button {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.13) !important;
+}
+
+/* Só ficam dourados no hover */
+.button.primary:hover,
+.button.secondary:hover,
+.enter-button:hover {
+  background: linear-gradient(180deg, #ffe680, #d9b437) !important;
+  color: #07101e !important;
+  border-color: rgba(255, 216, 77, 0.65) !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 216, 77, 0.25),
+    0 18px 44px rgba(255, 216, 77, 0.18),
+    0 20px 50px rgba(0, 0, 0, 0.38) !important;
+}
+
+/* Seta do botão também muda no hover */
+.enter-button:hover span {
+  color: #07101e !important;
+}
+
+/* Link ativo do menu */
+.nav-menu a.active {
+  background: linear-gradient(180deg, rgba(255, 216, 77, 0.24), rgba(255, 216, 77, 0.08)) !important;
+  color: #ffd84d !important;
+}
+
+/* Hover das ferramentas após entrar no site */
+.tools-row a {
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.tools-row a:hover {
+  background: linear-gradient(180deg, rgba(255, 216, 77, 0.25), rgba(255, 255, 255, 0.05)) !important;
+  color: #ffd84d !important;
+  border-color: rgba(255, 216, 77, 0.65) !important;
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255, 216, 77, 0.18),
+    0 18px 42px rgba(255, 216, 77, 0.12),
+    0 20px 46px rgba(0, 0, 0, 0.35);
+}
+
+/* Hover das ferramentas da tela inicial */
+.tool-orbit:hover {
+  background: linear-gradient(180deg, rgba(255, 216, 77, 0.25), rgba(255, 255, 255, 0.05)) !important;
+  border-color: rgba(255, 216, 77, 0.65) !important;
+  color: #ffd84d !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 216, 77, 0.18),
+    0 20px 48px rgba(255, 216, 77, 0.14),
+    0 20px 46px rgba(0, 0, 0, 0.42);
+}
+
+.tool-orbit:hover strong {
+  background: #ffd84d !important;
+  color: #07101e !important;
+}
+
+/* Ajuste mobile das logos */
+@media (max-width: 760px) {
+  .brand-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .download-logo-img {
+    width: 78px;
+    height: 78px;
+  }
+}
